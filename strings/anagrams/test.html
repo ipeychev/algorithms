@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>String anagrams</title>
+	</head>
+
+	<body>
+		<script src="anagrams.js"></script>
+
+		<script>
+			var anagrams = new Liferay.Anagram();
+
+			var isAnagram = anagrams.isAnagram('Eleven plus two', 'Twelve plus one');
+
+			console.log(isAnagram); // true
+
+			isAnagram = anagrams.isAnagram('not anagram', 'aanrgam ton');
+
+			console.log(isAnagram); // true
+
+			isAnagram = anagrams.isAnagram('not anagram', 'anagram nut');
+
+			console.log(isAnagram); // false
+		</script>
+	</body>
+</html>
