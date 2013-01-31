@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Linked list</title>
+	</head>
+
+	<body>
+
+	<script src="linked-list.js"></script>
+
+	<script>
+
+		var linkedList = new Liferay.LinkedList();
+
+		linkedList.add(5);
+
+		linkedList.add(10);
+
+		linkedList.add(15);
+
+		linkedList.add(20);
+
+		linkedList.add(25);
+
+		var item = linkedList.itemAt(1);
+
+		console.log(item); // has to be 10
+
+		var data = linkedList.remove(1);
+
+		console.log(data); // has to be 10
+
+		console.log(linkedList.size()); // has to be 4
+
+		item = linkedList.itemAt(1);
+
+		console.log(item); // has to be 15
+
+		data = linkedList.remove(3);
+
+		console.log(data); // has to be 25
+
+		console.log(linkedList.contains(20));
+
+	</script>
+
+	</body>
+
+</html>
