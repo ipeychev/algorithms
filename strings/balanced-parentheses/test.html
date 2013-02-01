@@ -1,0 +1,19 @@
+<html>
+<body>
+
+	<script type="text/javascript" src="balanced-parentheses.js"></script>
+
+	<script>
+		var balancedParentheses = new Liferay.BalancedParentheses();
+
+		var res = balancedParentheses.check('([{}])');
+
+		console.log(res); // true
+
+		res = balancedParentheses.check('([{})');
+
+		console.log(res); // false
+	</script>
+
+</body>
+</html>
