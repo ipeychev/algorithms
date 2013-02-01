@@ -11,7 +11,7 @@ Liferay.Anagram.prototype = {
 	constructor: Liferay.Anagram,
 
 	isAnagram: function(source, dest) {
-		var curChar, curVal, hashtable, i, key;
+		var curChar, curVal, hashtable, i;
 
 		if (source.length !== dest.length) {
 			return false;
@@ -50,5 +50,26 @@ Liferay.Anagram.prototype = {
 		}
 
 		return true;
+	},
+
+	findAnagrams: function(list) {
+		var hashtable = Object.create ? Object.create(null) : {};
+
+		for (var i = 0; i < list.length; i++) {
+			var word = list[i];
+
+			var sortedWord = word.toLowerCase().split('').sort().join('');
+
+			var value = hashtable[sortedWord];
+
+			if (value) {
+				value.push(word);
+			}
+			else {
+				hashtable[sortedWord] = [word];
+			}
+		}
+
+		return hashtable;
 	}
 };
