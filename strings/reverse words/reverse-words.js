@@ -12,22 +12,24 @@ Liferay.ReverseWords.prototype = {
 	constructor: Liferay.ReverseWords,
 
 	reverse: function(content) {
-		var endPos;
+		var wordStart;
 
-		var res = [];
+		var words = [];
 
-		for (var i = content.length - 1, endPos = content.length; i >= 0; --i) {
-			if (content[i] === ' ') {
-				var tmp = content.substring(i + 1, endPos);
+		for (var i = 0; i < content.length;) {
+			if (content.charAt(i) !== ' ') {
+				wordStart = i;
 
-				res.push(tmp);
+				while(i < content.length && content.charAt(i) != ' ') {
+					i++;
+				}
 
-				endPos = i;
+				words.push(content.substring(wordStart, i));
 			}
+
+			i++;
 		}
 
-		res.push(content.substring(0, endPos));
-
-		return res;
+		return words.reverse();
 	}
 };
