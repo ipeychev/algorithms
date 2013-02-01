@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Find missing element</title>
+	</head>
+
+	<body>
+		<script src="find-missing-element.js"></script>
+
+		<script>
+			var findMissingElement = new Liferay.FindMissingElement();
+
+			var result = findMissingElement.find(
+				[1, 10, 4, 3, 9],
+				[3, 4, 9, 1]
+			);
+
+			console.log(result);
+		</script>
+	</body>
+</html>
