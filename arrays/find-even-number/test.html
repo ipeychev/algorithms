@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Find a number in array, which occurs even times and all other have odd occurrences</title>
+	</head>
+
+	<body>
+		<script src="find-even-number.js"></script>
+
+		<script>
+			var findEvenNumberArray = new Liferay.FindEvenNumberArray();
+
+			var result = findEvenNumberArray.find(
+				[1, 2, 2, 3, 2, 3, 3, 4, 4, 1, 4]
+			);
+
+			console.log(result);
+
+			findEvenNumberArray = new Liferay.FindEvenNumberArray(
+				{
+					useXOR: true
+				}
+			);
+
+			result = findEvenNumberArray.find(
+				[1, 2, 2, 3, 2, 3, 3, 4, 4, 1, 4]
+			);
+
+			console.log(result); // 1
+		</script>
+	</body>
+</html>
