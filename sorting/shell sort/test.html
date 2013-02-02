@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Shell sort</title>
+	</head>
+
+	<body>
+
+		<script src="shell-sort.js"></script>
+
+		<script>
+
+			var list = [6, 5, 3, 1, 8, 2, 7, 2, 4];
+
+			var shellsort = new Liferay.ShellSort();
+
+			list = shellsort.sort(list);
+
+			console.log(list); // 1, 2, 2, 3, 4, 5, 6, 7, 8
+
+		</script>
+
+	</body>
+
+</html>
