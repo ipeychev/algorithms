@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Find the largest continious sum in array</title>
+	</head>
+
+	<body>
+		<script src="largest-continious-sum.js"></script>
+
+		<script>
+			var largestContiniousSum = new Liferay.LargestContiniousSum();
+
+			var result = largestContiniousSum.find(
+				[-40, 1, 40, -50, 1, 50, -20, 1, 20, 0, 0]
+			);
+
+			console.log(result); // 52
+
+			result = largestContiniousSum.find(
+				[3, -5, 2, -4, 6, -9, 9, -10]
+			);
+
+			console.log(result); // 9
+		</script>
+	</body>
+</html>
