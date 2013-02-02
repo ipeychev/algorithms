@@ -11,22 +11,22 @@ Liferay.InsertionSort.prototype = {
 	constructor: Liferay.InsertionSort,
 
 	sort: function(list) {
-		var i, length, result = [], slot;
+		var i, length, out = [], slotIndex;
 
 		for (i = 0, length = list.length; i < length; i++) {
-			slot = result.length;
+			slotIndex = out.length;
 
-			while (slot > 0) {
-				if (list[i] >= result[slot - 1]) {
+			while (slotIndex > 0) {
+				if (list[i] >= out[slotIndex - 1]) {
 					break;
 				}
 
-				--slot;
+				--slotIndex;
 			}
 
-			result.splice(slot, 0, list[i]);
+			out.splice(slotIndex, 0, list[i]);
 		}
 
-		return result;
+		return out;
 	}
 };
