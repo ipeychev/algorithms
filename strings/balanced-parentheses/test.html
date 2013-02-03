@@ -6,11 +6,11 @@
 	<script>
 		var balancedParentheses = new Liferay.BalancedParentheses();
 
-		var res = balancedParentheses.check('([{}])');
+		var res = balancedParentheses.check('(dfhg[ dfhg {dfhg dfhg }fdh g] fdhg df h )');
 
 		console.log(res); // true
 
-		res = balancedParentheses.check('([{})');
+		res = balancedParentheses.check('(h [h dfg{ dfhgdf } dfghdfhg ) hfdhg ');
 
 		console.log(res); // false
 	</script>

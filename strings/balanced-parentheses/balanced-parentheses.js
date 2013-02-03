@@ -31,7 +31,7 @@ Liferay.BalancedParentheses.prototype = {
             if (htOpenParentheses[character]) {
                 stack.push(character);
             }
-            else {
+            else if (htClosedParentheses[character]) {
                 if (stack.length === 0) {
                     return false;
                 }
