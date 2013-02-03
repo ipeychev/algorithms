@@ -12,6 +12,9 @@ Liferay.BinarySearchTreeChecker.prototype = {
 
 	isBST: function(rootNode) {
 		return this._isBST(rootNode, -Infinity, Infinity);
+
+		// alternate solution, using inOrder traversal
+		// return this._isBST2(rootNode, -Infinity);
 	},
 
 	_isBST: function(node, minValue, maxValue) {
@@ -26,5 +29,26 @@ Liferay.BinarySearchTreeChecker.prototype = {
 		}
 
 		return this._isBST(node.left, minValue, node.value) && this._isBST(node.right, node.value, maxValue);
+	},
+
+	/*
+	 * Alternate solution using inOrder traversal
+	 */
+	isBST2: function(node, lastValue) {
+		if (!node) {
+			return true;
+		}
+
+		if (!this._isBST2(node.left, lastValue)) {
+			return false;
+		}
+
+		if (lastValue >= node.value) {
+			return false;
+		}
+
+		lastValue = node.value;
+
+		return this._isBST2(node.right, lastValue);
 	}
 };
