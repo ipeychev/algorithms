@@ -39,7 +39,7 @@ Liferay.QuickSort.prototype = {
 	_sort: function(array, startIndex, endIndex) {
 		var partition, pivot;
 
-		if (startIndex < 0 || startIndex >= array.length) {
+		if (startIndex < 0 || endIndex >= array.length) {
 			return;
 		}
 
