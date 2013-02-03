@@ -15,21 +15,23 @@ Liferay.FirstNonRepeatedCharacter.prototype = {
     },
 
     _find: function(content) {
-        var character, currentValue, htCharacters = Object.create ? Object.create(null) : {};
+        var character, curValue, hop, i, htCharacters = Object.create ? Object.create(null) : {}, key;
 
-        for (var i = 0; i < content.length; i++) {
+        for (i = 0; i < content.length; ++i) {
             character = content.charAt(i);
 
-            currentValue = htCharacters[character] || 0;
+            curValue = htCharacters[character] || 0;
 
-            htCharacters[character] = ++currentValue;
+            htCharacters[character] = ++curValue;
         }
 
-        for (i = 0; i < content.length; i++) {
-            character = content.charAt(i);
+        hop = Object.prototype.hasOwnProperty;
 
-            if (htCharacters[character] == 1) {
-                return character;
+        for (key in htCharacters) {
+            if (hop.call(htCharacters, key)) {
+                if (htCharacters[key] === 1) {
+                    return key;
+                }
             }
         }
 
