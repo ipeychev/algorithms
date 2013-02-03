@@ -55,13 +55,11 @@ Liferay.FindEvenNumberArray.prototype = {
 
 		for (i = 0; i < array.length; i++) {
 			htUniqueNumbers[array[i]] = array[i];
+
+			result ^= array[i];
 		}
 
 		hop = Object.prototype.hasOwnProperty;
-
-		for (i = 0, j = 0; i < array.length; i++) {
-			result ^= array[i];
-		}
 
 		for (key in htUniqueNumbers) {
 			if (hop.call(htUniqueNumbers, key)) {
