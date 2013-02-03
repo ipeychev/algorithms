@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Check if string is a palindrome</title>
+
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<script src="is-palindrome.js"></script>
+
+		<script>
+			var isPalindrome = new Liferay.IsPalindrome();
+
+			var result = isPalindrome.check('дебел лебед');
+
+			console.log(result); // true
+
+			result = isPalindrome.check('Sator Arepo Tenet Opera Rotas');
+
+			console.log(result); // true
+
+			result = isPalindrome.check('test');
+
+			console.log(result); // false
+
+			result = isPalindrome.check('Алена мадама Нела');
+
+			console.log(result); // true
+
+			result = isPalindrome.check('Лято. Пот. Сечище. Вопли. Било катерят сини планинари. Тиранин-алпинист ярета коли. Бил по-вещ и често пот ял.');
+
+			console.log(result); // true
+
+			result = isPalindrome.check('Олга! Нелепо копеле нагло!');
+
+			console.log(result); // true
+
+			result = isPalindrome.check('Анархия и храна!');
+
+			console.log(result); // true
+		</script>
+	</body>
+</html>
