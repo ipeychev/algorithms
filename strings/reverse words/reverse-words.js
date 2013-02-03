@@ -4,7 +4,7 @@ if (typeof Liferay == 'undefined') {
 	var Liferay = {};
 }
 
-Liferay.ReverseWords = function(config) {	
+Liferay.ReverseWords = function(config) {
 };
 
 
@@ -16,7 +16,7 @@ Liferay.ReverseWords.prototype = {
 
 		var words = [];
 
-		for (var i = 0; i < content.length;) {
+		for (var i = 0; i < content.length; ++i) {
 			if (content.charAt(i) !== ' ') {
 				wordStart = i;
 
@@ -26,8 +26,6 @@ Liferay.ReverseWords.prototype = {
 
 				words.push(content.substring(wordStart, i));
 			}
-
-			i++;
 		}
 
 		return words.reverse();
