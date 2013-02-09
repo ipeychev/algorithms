@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Depth first search</title>
+	</head>
+
+	<body>
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="depth-first-search.js"></script>
+
+		<script>
+			var bst = new Liferay.BST();
+
+			bst.add(['F', 'B', 'G', 'A', 'D', 'I', 'C', 'E', 'H']);
+
+			var depthFirstSearch = new Liferay.DepthFirstSearch();
+
+			var result = depthFirstSearch.preOrderTraversal(bst.getRoot());
+
+			console.log(result) // F, B, A, D, C, E, G, I, H (root, left, right)
+
+			result = depthFirstSearch.inOrderTraversal(bst.getRoot());
+
+			console.log(result) // A, B, C, D, E, F, G, H, I (left, root, right)
+			
+			result = depthFirstSearch.postOrderTraversal(bst.getRoot());
+
+			console.log(result) // A, C, E, D, B, H, I, G, F (left, right, root)
+		</script>
+
+	</body>
+
+</html>
