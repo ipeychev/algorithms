@@ -31,10 +31,14 @@ Liferay.BinarySearchTreeChecker.prototype = {
 		return this._isBST(node.left, minValue, node.value) && this._isBST(node.right, node.value, maxValue);
 	},
 
+	isBST2: function(node) {
+		return this._isBST2(node, -Infinity);
+	},
+
 	/*
 	 * Alternate solution using inOrder traversal
 	 */
-	isBST2: function(node, lastValue) {
+	_isBST2: function(node, lastValue) {
 		if (!node) {
 			return true;
 		}

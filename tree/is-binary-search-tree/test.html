@@ -3,16 +3,26 @@
 <html>
 
 	<head>
-		<title>Insertion sort</title>
+		<title>Is a tree binary search tree</title>
 	</head>
 
 	<body>
 
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
 		<script src="is-binary-search-tree.js"></script>
 
 		<script>
 
-			
+			var bst = new Liferay.BST();
+
+			bst.add([8, 3, 1, 6, 4, 7, 10, 14, 13]);
+
+			var binarySearchTreeChecker = new Liferay.BinarySearchTreeChecker();
+
+			console.log(binarySearchTreeChecker.isBST(bst.getRoot())); // true
+
+			console.log(binarySearchTreeChecker.isBST2(bst.getRoot())); // true
 
 		</script>
 
