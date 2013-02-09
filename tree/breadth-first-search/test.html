@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Breadth first search</title>
+	</head>
+
+	<body>
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="breath-first-search.js"></script>
+
+		<script>
+			var bst = new Liferay.BST();
+
+			bst.add(['F', 'B', 'G', 'A', 'D', 'I', 'C', 'E', 'H']);
+
+			var breadthFirstSearch = new Liferay.BreadthFirstSearch();
+
+			var result = breadthFirstSearch.traverse(bst.getRoot());
+
+			console.log(result) // F, B, G, A, D, I, C, E, H
+		</script>
+
+	</body>
+
+</html>
