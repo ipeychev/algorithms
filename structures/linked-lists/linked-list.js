@@ -51,6 +51,14 @@ Liferay.LinkedList.prototype = {
 		return false;
 	},
 
+	getReverseOrder: function() {
+		var result = [];
+
+		this._getReverseOrder(this._head, result);
+
+		return result;
+	},
+
 	itemAt: function(index) {
 		var current, i = 0;
 
@@ -98,5 +106,13 @@ Liferay.LinkedList.prototype = {
 
 	size: function() {
 		return this._length;
+	},
+
+	_getReverseOrder: function(node, result) {
+		if (node) {
+			this._getReverseOrder(node.next, result);
+
+			result.push(node.value);
+		}
 	}
 };
