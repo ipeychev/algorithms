@@ -1,47 +1,51 @@
 <html>
-<body>
+	<head>
+		<title>Find pattern in string</title>
+	</head>
 
-	<script type="text/javascript" src="find-string-pattern.js"></script>
+	<body>
 
-	<script>
-		var findStringPattern = new Liferay.FindStringPattern();
+		<script type="text/javascript" src="find-string-pattern.js"></script>
 
-		var result = findStringPattern.find('This is the string ', 'is*is');
+		<script>
+			var findStringPattern = new Liferay.FindStringPattern();
 
-		console.log(result); // false
+			var result = findStringPattern.find('This is the string ', 'is*is');
 
-		result = findStringPattern.find('This is the string ', '*is*is*g ');
+			console.log(result); // false
 
-		console.log(result); // true
+			result = findStringPattern.find('This is the string ', '*is*is*g ');
 
-		result = findStringPattern.find('This is the string ', '*');
+			console.log(result); // true
 
-		console.log(result); // true
+			result = findStringPattern.find('This is the string ', '*');
 
-		result = findStringPattern.find('This is the string ', 'This is the string*');
+			console.log(result); // true
 
-		console.log(result); // true
+			result = findStringPattern.find('This is the string ', 'This is the string*');
 
-		result = findStringPattern.find('This is the string ', 'This is the string');
+			console.log(result); // true
 
-		console.log(result); // false
+			result = findStringPattern.find('This is the string ', 'This is the string');
 
-		result = findStringPattern.find('This is the string ', '*g*');
+			console.log(result); // false
 
-		console.log(result); // true
+			result = findStringPattern.find('This is the string ', '*g*');
 
-		result = findStringPattern.find('This is the string ', 'g');
+			console.log(result); // true
 
-		console.log(result); // false
+			result = findStringPattern.find('This is the string ', 'g');
 
-		result = findStringPattern.find('This is the string ', '');
+			console.log(result); // false
 
-		console.log(result); // false
+			result = findStringPattern.find('This is the string ', '');
 
-		result = findStringPattern.find('This is the string ', '**This*');
+			console.log(result); // false
 
-		console.log(result); // false
-	</script>
+			result = findStringPattern.find('This is the string ', '**This*');
 
-</body>
+			console.log(result); // false
+		</script>
+
+	</body>
 </html>
