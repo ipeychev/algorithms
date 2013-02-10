@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Find N-th element </title>
+	</head>
+
+	<body>
+
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="find-nth-element.js"></script>
+
+		<script>
+
+			var bst = new Liferay.BST();
+
+			bst.add([8, 3, 1, 6, 4, 7, 10, 14, 13]);
+
+			var findNthElement = new Liferay.FindNthElement();
+
+			console.log(findNthElement.find(bst.getRoot(), 3)); // 4
+
+			console.log(findNthElement.find(bst.getRoot(), 5)); // 7
+
+			console.log(findNthElement.find(bst.getRoot(), 9)); // 14
+
+		</script>
+
+	</body>
+
+</html>
