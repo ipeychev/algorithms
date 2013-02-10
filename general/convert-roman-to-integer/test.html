@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Convert Roman number to integer</title>
+	</head>
+
+	<body>
+		<script src="convert-roman-to-integer.js"></script>
+
+		<script>
+			var romanToInteger = new Liferay.RomanToInteger();
+
+			var result = romanToInteger.convert('XLIV');
+
+			console.log(result); // 44
+
+			result = romanToInteger.convert('MDCCCCLXXXXVIIII');
+
+			console.log(result); // 1999
+
+			result = romanToInteger.convert('MMMDCCCXCII');
+
+			console.log(result); // 3892			
+
+			result = romanToInteger.convert('I');
+
+			console.log(result); // 1
+		</script>
+	</body>
+</html>
