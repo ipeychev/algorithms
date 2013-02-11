@@ -41,6 +41,10 @@ Liferay.BST.prototype = {
 		return this._root;
 	},
 
+	getMaxHeight: function() {
+		return this._getMaxHeight(this._root);
+	},
+
 	_add: function(value) {
 		if (!this._root) {
 			this._root = new Liferay.BSTNode(value);
@@ -72,5 +76,17 @@ Liferay.BST.prototype = {
 				}
 			}
 		}
+	},
+
+	_getMaxHeight: function(node) {
+		if (!node) {
+			return 0;
+		}
+
+		var leftHeight = this._getMaxHeight(node.left);
+
+		var rightHeight = this._getMaxHeight(node.right);
+
+		return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
 	}
 };
