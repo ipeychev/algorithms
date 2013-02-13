@@ -20,6 +20,26 @@
 			var maxHeight = bst.getMaxHeight();
 
 			console.log(maxHeight); // 4
+
+			
+			bst = new Liferay.BST();
+
+			bst.add([8, 3, 1, 5, 4, 6, 9]);
+
+			node = bst.getNode(3);
+
+			console.log(bst.getInorderSuccessor(node).value); // 4
+
+			
+			bst = new Liferay.BST();
+
+			bst.add([8, 3, 1, 5, 4, 9]);
+
+			debugger;
+
+			node = bst.getNode(5);
+
+			console.log(bst.getInorderSuccessor(node).value); // 8
 		</script>
 
 	</body>

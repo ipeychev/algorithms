@@ -22,17 +22,51 @@ Liferay.BST.prototype = {
 	},
 
 	contains: function (value) {
+		return !!this.getNode(value);
+	},
+
+	getInorderSuccessor: function(node) {
+		var curNode;
+
+		// the node has right child, so we get its leftmost child
+		if (node.right) {
+			curNode = node.right;
+
+			while (curNode.left) {
+				curNode = curNode.left;
+			}
+
+			return curNode;
+		}
+		else {
+			node = node.parent;
+
+			while (node) {
+				if (node.parent && node.parent.left === node) {
+					curNode = node.parent;
+
+					break;
+				}
+
+				node = node.parent;
+			}
+
+			return curNode;
+		}
+	},
+
+	getNode: function(value) {
 		var node = this._root;
 
 		while (node) {
 			if (value < node.value) {
 				node = node.left;
 			}
-			else if (value < node.value) {
+			else if (value > node.value) {
 				node = node.right;
 			}
 			else {
-				return true;
+				return node;
 			}
 		}
 	},
@@ -55,7 +89,7 @@ Liferay.BST.prototype = {
 			while (node) {
 				if (value < node.value) {
 					if (!node.left) {
-						node.left = new Liferay.BSTNode(value);
+						node.left = new Liferay.BSTNode(value, node);
 
 						return;
 					}
@@ -64,7 +98,7 @@ Liferay.BST.prototype = {
 				}
 				else if (value > node.value) {
 					if (!node.right) {
-						node.right = new Liferay.BSTNode(value);
+						node.right = new Liferay.BSTNode(value, node);
 
 						return;
 					}
