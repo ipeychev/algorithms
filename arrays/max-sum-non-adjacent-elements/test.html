@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Find the maximum sum of a sub-sequence from an positive integer array where any two numbers of sub-sequence are not adjacent to each other in the original sequence</title>
+	</head>
+
+	<body>
+		<script src="max-sum-non-adjacent-elements.js"></script>
+
+		<script>
+			var maxSumNonAdjElements = new Liferay.MaxSumNonAdjElements();
+
+			var result = maxSumNonAdjElements.find(
+				[
+					1, 6, 2, 2, 3
+				]
+			);
+
+			console.log(result); // 6, 2 -> 8
+
+			result = maxSumNonAdjElements.find(
+				[
+					1, 2, 3, 4, 5, 6
+				]
+			);
+
+			console.log(result); // 2, 4, 6 -> 12
+
+			result = maxSumNonAdjElements.find(
+				[
+					1, 51, 3, 1, 100, 199, 3
+				]
+			);
+
+			console.log(result); // 51, 1, 199 -> 251
+		</script>
+	</body>
+</html>
