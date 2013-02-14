@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Find an ancestor of given two node from a tree in O(n) time. The tree is binary search tree.</title>
+	</head>
+
+	<body>
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="ancestor-two-nodes.js"></script>
+
+		<script>
+			var bst = new Liferay.BST();
+
+			bst.add([5, 3, 1, 0 , 2, 4]);
+
+			var ancestorTwoNodes = new Liferay.AncestorTwoNodes();
+
+			var result = ancestorTwoNodes.find(bst.getRoot(), 1, 2);
+
+			console.log(result); // 3
+
+			var result = ancestorTwoNodes.find(bst.getRoot(), 3, 4);
+
+			console.log(result); // 5
+		</script>
+
+	</body>
+
+</html>
