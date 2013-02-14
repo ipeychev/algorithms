@@ -25,6 +25,39 @@ Liferay.BST.prototype = {
 		return !!this.getNode(value);
 	},
 
+	/*
+	 * The predecessor node is the node with the next smaller number in the tree
+	 */
+	getInorderPredecessor: function(node) {
+		var curNode;
+
+		// the node has right child, so we get its rightmost child
+		if (node.left) {
+			curNode = node.left;
+
+			while (curNode.right) {
+				curNode = curNode.right;
+			}
+
+			return curNode;
+		}
+		else {
+			// travelling up, we get the first parent, whose right node === node we currently are
+			while (node) {
+				if (node.parent && node.parent.right === node) {
+					curNode = node.parent;
+				}
+
+				node = node.parent;
+			}
+
+			return curNode;
+		}
+	},
+
+	/*
+	 * The successor node is the node with the next bigger number in the tree
+	 */
 	getInorderSuccessor: function(node) {
 		var curNode;
 
@@ -39,8 +72,7 @@ Liferay.BST.prototype = {
 			return curNode;
 		}
 		else {
-			node = node.parent;
-
+			// travelling up, we get the first parent, whose left node === node we currently are
 			while (node) {
 				if (node.parent && node.parent.left === node) {
 					curNode = node.parent;

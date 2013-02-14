@@ -26,6 +26,10 @@
 
 			bst.add([8, 3, 1, 5, 4, 6, 9]);
 
+			node = bst.getNode(4);
+
+			console.log(bst.getInorderPredecessor(node).value); // 3
+
 			node = bst.getNode(3);
 
 			console.log(bst.getInorderSuccessor(node).value); // 4
@@ -34,6 +38,10 @@
 			bst = new Liferay.BST();
 
 			bst.add([8, 3, 1, 5, 4, 9]);
+
+			node = bst.getNode(9);
+
+			console.log(bst.getInorderPredecessor(node).value); // 8
 
 			node = bst.getNode(5);
 
