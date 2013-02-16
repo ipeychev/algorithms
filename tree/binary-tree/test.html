@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Binary tree, find common ancestor of two nodes without using external data structures</title>
+	</head>
+
+	<body>
+		<script src="node.js"></script>
+
+		<script>
+			var node2Root = new Liferay.BTNode(2);
+
+			var node7 = new Liferay.BTNode(7);
+
+			node2Root.left = node7;
+
+			var node5r = new Liferay.BTNode(5);
+
+			node2Root.right = node5r;
+
+			var node2 = new Liferay.BTNode(2);
+
+			node7.left = node2;
+
+			var node6 = new Liferay.BTNode(6);
+
+			node7.right = node6;
+
+			var node5 = new Liferay.BTNode(5);
+
+			node6.left = node5;
+
+			var node11 = new Liferay.BTNode(11);
+
+			node6.right = node11;
+
+			var node9 = new Liferay.BTNode(9);
+
+			node5.right = node9;
+
+			var node4 = new Liferay.BTNode(4);
+
+			node9.left = node4;
+
+
+			var NO_NODES = 0;
+			var ONE_NODE = 1;
+			var TWO_NODES = 2;
+
+			function covers(node, p, q) {
+				var result = NO_NODES;
+
+				if (!node) {
+					return result;
+				}
+
+				if (node === p || node === q) {
+					result += 1;
+				}
+
+				result += covers(node.left, p, q);
+
+				if (result === TWO_NODES) {
+					return result;
+				}
+
+				return result + covers(node.right, p, q);
+			}
+
+			function findCommonAncestor(node, p, q) {
+				debugger;
+
+				if (p === q && (node.left === p || node.right === q)) {
+					return node;
+				}
+
+				var nodesFromLeft = covers(node.left, p, q);
+
+				if (nodesFromLeft === TWO_NODES) {
+					if (node.left === p || node.right === q) {
+						return node.left;
+					}
+					else {
+						return findCommonAncestor(node.left, p, q);
+					}
+				}
+				else if (nodesFromLeft === ONE_NODE) {
+					if (node === p) {
+						return p;
+					}
+					else if (node === q) {
+						return q;
+					}
+				}
+
+
+				var nodesFromRight = covers(node.right, p, q);
+
+				if (nodesFromRight === TWO_NODES) {
+					if (node.right === p || node.right === q) {
+						return node.right;
+					}
+					else {
+						return findCommonAncestor(node.right, p, q);
+					}
+				}
+				else if (nodesFromRight === ONE_NODE) {
+					if (node === p) {
+						return p;
+					}
+					else if (node === q) {
+						return q;
+					}
+				}
+
+				if (nodesFromLeft === ONE_NODE && nodesFromRight === ONE_NODE) {
+					return node;
+				}
+
+				return null;
+			};
+
+			var result = findCommonAncestor(node2Root, node5, node6);
+
+			console.log(result); // node7
+		</script>
+
+	</body>
+
+</html>
