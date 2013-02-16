@@ -14,16 +14,23 @@
 
 			var content = 'abcd';
 
-			var strintPermutations = new Liferay.StringPermutations();
+			var stringPermutations = new Liferay.StringPermutations();
 
-			var result = strintPermutations.permute(content);
+			var result = stringPermutations.permute(content);
 
 			console.log(result); // abcd abdc acbd acdb adbc adcb bacd badc bcad bcda bdac bdca cabd cadb cbad cbda cdab cdba dabc dacb dbac dbca dcab dcba
 
-			result = strintPermutations.permute('aaa');
+			result = stringPermutations.permute('aaa');
 
 			console.log(result); // aaa aaa aaa aaa aaa aaa
 
+			result = stringPermutations.permute2(content);
+
+			console.log(result); // abcd abdc acbd acdb adbc adcb bacd badc bcad bcda bdac bdca cabd cadb cbad cbda cdab cdba dabc dacb dbac dbca dcab dcba
+
+			result = stringPermutations.permute2('aaa');
+
+			console.log(result); // aaa aaa aaa aaa aaa aaa			
 		</script>
 
 	</body>
