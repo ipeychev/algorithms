@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Given an integer, return all sequences of numbers that sum to it.</title>
+	</head>
+
+	<body>
+		<script src="find-sequences-sum-integer.js"></script>
+
+		<script>
+			var findSequencesSumInteger = new Liferay.FindSequencesSumInteger();
+
+			var result = findSequencesSumInteger.find(3);
+
+			console.log(result); // (1, 2), (2, 1), (1, 1, 1)
+
+			result = findSequencesSumInteger.find(4);
+
+			console.log(result); // (1, 1, 1, 1), (2, 1, 1), (1, 2, 1), (3, 1), (1, 1, 2), (2, 2), (1, 3)
+		</script>
+	</body>
+</html>
