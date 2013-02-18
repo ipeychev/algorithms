@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Find the maximum number which can be formed by the array elements</title>
+	</head>
+
+	<body>
+		<script src="max-num-elements.js"></script>
+
+		<script>
+			var maxNumElements = new Liferay.MaxNumElements();
+
+			var result = maxNumElements.find(
+				[
+					9, 6, 8, 1
+				]
+			);
+
+			console.log(result); // 9861
+
+			var result = maxNumElements.find(
+				[
+					10, 7, 9, 20, 30
+				]
+			);
+
+			console.log(result); // 97302010
+		</script>
+	</body>
+</html>
