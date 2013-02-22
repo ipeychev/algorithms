@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Compute the number of valid interpretations of an input</title>
+	</head>
+
+	<body>
+		<script src="compute-interpretations.js"></script>
+
+		<script>
+			var computeInterpretations = new Liferay.ComputeInterpretations();
+
+			var result = computeInterpretations.compute('11');
+
+			console.log(result); // 'aa', 'k'
+
+			var result = computeInterpretations.compute('111');
+
+			console.log(result); // 'aaa', 'ak', 'ka'
+		</script>
+	</body>
+</html>
