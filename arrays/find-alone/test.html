@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Given is an array. Some items have links to others but there is one, which does not have links to any. Find it.</title>
+	</head>
+
+	<body>
+		<script src="find-alone.js"></script>
+
+		<script>
+			var findAlone = new Liferay.FindAlone();
+
+			var elements = ['A', 'B', 'C', 'D', 'E'];
+
+			var relations = {
+				A: {
+					'B': 1,
+					'C': 1,
+					'E': 1
+				},
+				B: {
+					'A': 1,
+					'C': 1,
+					'D': 1
+				},
+				C: {},
+				D: {
+					'B': 1,
+					'C': 1,
+					'E': 1
+				},
+				E: {
+					'A': 1,
+					'C': 1
+				}
+			};
+
+			var result = findAlone.find(elements, relations);
+
+			console.log(result); // C
+		</script>
+	</body>
+</html>
