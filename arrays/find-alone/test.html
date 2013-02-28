@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Given is an array. All items there have links to each other, except one. Find which is the element.</title>
+	</head>
+
+	<body>
+		<script src="find-alone.js"></script>
+
+		<script>
+			var findAlone = new Liferay.FindAlone();
+
+			var elements = ['A', 'B', 'C', 'D', 'E'];
+
+			var relations = {
+				A: {
+					'B': 1,
+					'C': 1,
+					'D': 1,
+					'E': 1
+				},
+				B: {
+					'A': 1,
+					'C': 1,
+					'D': 1,
+					'E': 1
+				},
+				C: {},
+				D: {
+					'A': 1,
+					'B': 1,
+					'C': 1,
+					'E': 1
+				},
+				E: {
+					'A': 1,
+					'B': 1,
+					'C': 1,
+					'D': 1
+				}
+			};
+
+			var result = findAlone.find(elements, relations);
+
+			console.log(result); // C
+		</script>
+	</body>
+</html>
