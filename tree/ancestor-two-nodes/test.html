@@ -7,6 +7,8 @@
 	</head>
 
 	<body>
+		<p> From <a href="http://en.wikipedia.org/wiki/Least_common_ancestor">Wikipedia</a>: "Let T be a rooted tree with n nodes. The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself)"
+
 		<script src="../binary-search-tree/node.js"></script>
 		<script src="../binary-search-tree/binary-search-tree.js"></script>
 		<script src="ancestor-two-nodes.js"></script>
@@ -14,15 +16,23 @@
 		<script>
 			var bst = new Liferay.BST();
 
-			bst.add([5, 3, 1, 0 , 2, 4]);
+			bst.add([10, 5, 4, 8, 1, 30, 40]);
 
 			var ancestorTwoNodes = new Liferay.AncestorTwoNodes();
 
-			var result = ancestorTwoNodes.find(bst.getRoot(), 1, 2);
+			result = ancestorTwoNodes.find(bst.getRoot(), 1, 4);
 
-			console.log(result); // 3
+			console.log(result); // 4
 
-			var result = ancestorTwoNodes.find(bst.getRoot(), 3, 4);
+			result = ancestorTwoNodes.find(bst.getRoot(), 5, 30);
+
+			console.log(result); // 10
+
+			result = ancestorTwoNodes.find(bst.getRoot(), 4, 8);
+
+			console.log(result); // 5
+
+			result = ancestorTwoNodes.find(bst.getRoot(), 1, 8);
 
 			console.log(result); // 5
 		</script>
