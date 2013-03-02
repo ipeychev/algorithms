@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Is binary tree balanced</title>
+		<!--
+		A binary tree is balanced if the difference between its maxDepth (maxHeight) and minDepth (minHeight) <= 1
+		-->
+	</head>
+
+	<body>
+
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="is-balanced.js"></script>
+
+		<script>
+
+			var bst = new Liferay.BST();
+
+			bst.add([50, 17, 12, 72]);
+
+			var balancedTreeChecker = new Liferay.BalancedTreeChecker();
+
+			console.log(balancedTreeChecker.isBalanced(bst.getRoot())); // true
+		</script>
+
+	</body>
+
+</html>
