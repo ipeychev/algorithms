@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Mutate string</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript" src="mutate-string.js"></script>
+
+		<script>
+			var mutateString = new Liferay.MutateString();
+
+			var result = mutateString.mutate(
+				'fab',
+				{
+					'f': ['F', 4],
+					'b': ['B', 8]
+				}
+			);
+
+			console.log(result);  // "Fab", "FaB", "Fa8", "4ab", "4aB", "4a8", "faB", "fa8", "fab"
+		</script>
+
+	</body>
+</html>
