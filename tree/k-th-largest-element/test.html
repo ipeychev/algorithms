@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Find the k'th largest element in a binary search tree.</title>
+	</head>
+
+	<body>
+		<script src="../binary-search-tree/node.js"></script>
+		<script src="../binary-search-tree/binary-search-tree.js"></script>
+		<script src="k-th-largest-element.js"></script>
+
+		<script>
+			var bst = new Liferay.BST();
+
+			bst.add([10, 5, 4, 8, 1, 30, 40]);
+
+			var kthLargestNode = new Liferay.KthLargestNode();
+
+			result = kthLargestNode.find(bst.getRoot(), 3);
+
+			console.log(result); // 10
+
+			result = kthLargestNode.find(bst.getRoot(), 5);
+
+			console.log(result); // 5
+		</script>
+
+	</body>
+
+</html>
