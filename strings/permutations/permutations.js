@@ -93,17 +93,6 @@ Liferay.StringPermutations.prototype = {
 	},
 
 	_insertCharAt: function(content, character, position) {
-		content = 'This is my string, which is that long';
-
-		content = content.substring(0, 18) + '$' + content.substr(18);
-
-
-		content = 'This is my string, which is that long';
-
-		var arr = content.split('');
-
-		arr.splice(18, 0, '$');
-
-		arr.join('');
+		return content.substring(0, position) + character + content.substr(position);
 	}
 };
