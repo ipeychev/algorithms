@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Find string in another string</title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript" src="find-string.js"></script>
+
+		<script>
+			var findString = new Liferay.FindString();
+
+			var result = findString['findNaïve']('This is the string ', 'is the');
+
+			console.log(result); // 5
+		</script>
+
+	</body>
+</html>
