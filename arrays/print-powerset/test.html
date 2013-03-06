@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Print powerset.</title>
+	</head>
+
+	<body>
+		<p>Given this set {1,2,3}, it will print {1},{2},{3},{1,2},{1,3}, {2,3}, {1,2,3}
+
+		<script src="print-powerset.js"></script>
+
+		<script>
+			var printPowerset = new Liferay.PrintPowerset();
+
+			var result = printPowerset.powerset(
+				[
+					1, 2, 3
+				]
+			);
+
+			console.log(result); // {1} {1,2} {1,2,3} {1,3} {2} {2,3} {3}
+		</script>
+	</body>
+</html>
