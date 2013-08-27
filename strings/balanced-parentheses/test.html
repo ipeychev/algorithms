@@ -1,4 +1,7 @@
 <html>
+<head>
+	<title>Checks if parentheses in string are balanced (properly closed)</title>
+</head>
 <body>
 
 	<script type="text/javascript" src="balanced-parentheses.js"></script>
@@ -6,11 +9,11 @@
 	<script>
 		var balancedParentheses = new Liferay.BalancedParentheses();
 
-		var res = balancedParentheses.check('(dfhg[ dfhg {dfhg dfhg }fdh g] fdhg df h )');
+		var res = balancedParentheses.check('(This[ is {string with }balanced g] parentheses )');
 
 		console.log(res); // true
 
-		res = balancedParentheses.check('(h [h dfg{ dfhgdf } dfghdfhg ) hfdhg ');
+		res = balancedParentheses.check('(This [is string{ with } unbalanced ) parentheses ');
 
 		console.log(res); // false
 	</script>
