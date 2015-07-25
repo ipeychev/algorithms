@@ -11,7 +11,6 @@ describe('BSTChecker', function() {
 
 		var bstChecker = new BSTChecker();
 
-		debugger;
 		assert.isTrue(bstChecker.isBST(bst.getRoot()));
     });
 });
