@@ -1,14 +1,9 @@
-'use strict';
+var BSTNode = require('./node.js');
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
-}
+function BST() {};
 
-Liferay.BST = function(config) {
-};
-
-Liferay.BST.prototype = {
-	constructor: Liferay.BST,
+BST.prototype = {
+	constructor: BST,
 
 	add: function(value) {
 		if ((Array.isArray && Array.isArray(value)) || Object.prototype.toString.call(value) === '[object Array]') {
@@ -113,7 +108,7 @@ Liferay.BST.prototype = {
 
 	_add: function(value) {
 		if (!this._root) {
-			this._root = new Liferay.BSTNode(value);
+			this._root = new BSTNode(value);
 		}
 		else {
 			var node = this._root;
@@ -121,20 +116,20 @@ Liferay.BST.prototype = {
 			while (node) {
 				if (value < node.value) {
 					if (!node.left) {
-						node.left = new Liferay.BSTNode(value, node);
+						node.left = new BSTNode(value, node);
 
 						return;
 					}
-					
+
 					node = node.left;
 				}
 				else if (value > node.value) {
 					if (!node.right) {
-						node.right = new Liferay.BSTNode(value, node);
+						node.right = new BSTNode(value, node);
 
 						return;
 					}
-					
+
 					node = node.right;
 				}
 				else {
@@ -156,3 +151,5 @@ Liferay.BST.prototype = {
 		return (leftHeight > rightHeight) ? leftHeight + 1 : rightHeight + 1;
 	}
 };
+
+module.exports = BST;

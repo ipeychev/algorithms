@@ -1,17 +1,11 @@
-'use strict';
-
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
-}
-
-Liferay.BSTNode = function(value, parent) {
+function BSTNode(value, parent) {
 	this.value = value;
 
 	this.parent = parent;
-};
+}
 
-Liferay.BSTNode.prototype = {
-	constructor: Liferay.BSTNode,
+BSTNode.prototype = {
+	constructor: BSTNode,
 
 	left: null,
 
@@ -21,3 +15,5 @@ Liferay.BSTNode.prototype = {
 
 	value: null
 };
+
+module.exports = BSTNode;

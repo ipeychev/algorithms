@@ -1,4 +1,4 @@
-var assert = require('assert');
+var assert = require('chai').assert;
 var path = require('path');
 var ReverseSentence = require(path.resolve(__dirname, '../../../src/strings/reverse-sentence/reverse-sentence.js'));
 

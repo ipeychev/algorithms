@@ -1,20 +1,14 @@
-'use strict';
+function BSTChecker() {}
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
-}
-
-Liferay.BinarySearchTreeChecker = function(config) {
-};
-
-Liferay.BinarySearchTreeChecker.prototype = {
-	constructor: Liferay.BinarySearchTreeChecker,
+BSTChecker.prototype = {
+	constructor: BSTChecker,
 
 	isBST: function(rootNode) {
-		return this._isBST(rootNode, -Infinity, Infinity);
+		if (!rootNode) {
+			return false;
+		}
 
-		// alternate solution, using inOrder traversal
-		// return this._isBST2(rootNode, -Infinity);
+		return this._isBST(rootNode, Infinity, -Infinity);
 	},
 
 	_isBST: function(node, minValue, maxValue) {
@@ -22,13 +16,11 @@ Liferay.BinarySearchTreeChecker.prototype = {
 			return true;
 		}
 
-		var nodeValue = node.value;
-
-		if (!(minValue < nodeValue && nodeValue < maxValue)) {
+		if ((node.left && node.left.value >= minValue) || (node.right && node.right.value <= maxValue)) {
 			return false;
 		}
 
-		return this._isBST(node.left, minValue, node.value) && this._isBST(node.right, node.value, maxValue);
+		return this._isBST(node.left, node.value, maxValue) && this._isBST(node.right, minValue, node.value);
 	},
 
 	isBST2: function(node) {
@@ -56,3 +48,5 @@ Liferay.BinarySearchTreeChecker.prototype = {
 		return this._isBST2(node.right, lastValue);
 	}
 };
+
+module.exports = BSTChecker;
