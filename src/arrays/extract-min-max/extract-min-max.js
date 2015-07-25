@@ -1,37 +1,17 @@
-'use strict';
+function ExtractMinMax(array) {
+	var minValue = Infinity, maxValue = -Infinity;
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
-}
-
-Liferay.ExtractMinMax = function(config) {
-};
-
-Liferay.ExtractMinMax.prototype = {
-	constructor: Liferay.ExtractMinMax,
-
-	find: function(array) {
-		var startIndex, endIndex, minValue, maxValue;
-
-		startIndex = 0;
-
-		endIndex = array.length - 1;
-
-		minValue = Infinity;
-		maxValue = -Infinity;
-
-		while (endIndex >= startIndex) {
-			minValue = Math.min(array[startIndex], array[endIndex], minValue);
-
-			maxValue = Math.max(array[startIndex], array[endIndex], maxValue);
-
-			++startIndex;
-			--endIndex;
+	for (var i = 0; i < array.length; i++) {
+		if (array[i] > maxValue) {
+			maxValue = array[i];
 		}
 
-		return {
-			minValue: minValue,
-			maxValue: maxValue
-		};
+		if (array[i] < minValue) {
+			minValue = array[i];
+		}
 	}
-};
+
+	return [minValue, maxValue];
+}
+
+module.exports = ExtractMinMax;
