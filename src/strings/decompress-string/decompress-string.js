@@ -1,36 +1,24 @@
-'use strict';
+var DecompressString = function(content) {
+    var res = [];
+    var prevChar;
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
-}
+    for (var i = 0; i < content.length; i++) {
+        var curChar = content.charAt(i);
 
-Liferay.DecompressString = function(config) {
+        var num = parseInt(curChar, 10);
+
+        if (typeof num === 'number' && !isNaN(num)) {
+            prevChar = content.charAt(i - 1);
+
+            for (var j = 1; j < num; j++) {
+                res.push(prevChar);
+            }
+        } else {
+            res.push(curChar);
+        }
+    }
+
+    return res.join('');
 };
 
-Liferay.DecompressString.prototype = {
-	constructor: Liferay.DecompressString,
-
-	decompress: function(content) {
-		var result = [];
-
-		for (var i = 0; i < content.length; ++i) {
-			var curChar = content.charAt(i);
-
-			if (i + 1 < content.length) {
-				var nextChar = content.charAt(i + 1);
-
-				var charNum = parseInt(nextChar, 10);
-
-				if (!isNaN(charNum)) {
-					curChar = new Array(charNum + 1).join(curChar);
-
-					++i;
-				}
-			}
-
-			result.push(curChar);
-		}
-
-		return result.join('');
-	}
-};
+module.exports = DecompressString;
