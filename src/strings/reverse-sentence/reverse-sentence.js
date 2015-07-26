@@ -1,20 +1,32 @@
 function ReverseSentence(string) {
-	var array = [];
+	var i, j;
 	var lastIndex = 0;
+	var res = '';
 
-	for (var i = 0; i < string.length; i++) {
-		if (string.charAt(i) === ' ') {
-			array.push(string.substring(lastIndex, i));
+	for (i = string.length - 1; i >= 0; i--) {
+		res += string.charAt(i);
+	}
 
+	string = '';
+
+	for (i = 0; i < res.length; i++) {
+		if (res.charAt(i) === ' ') {
+			for (j = i - 1; j >= lastIndex; j--) {
+				string += res.charAt(j);
+			}
+
+			string += ' ';
 			lastIndex = i + 1;
 		}
 	}
 
-	if (lastIndex < string.length) {
-		array.push(string.substring(lastIndex, string.length));
+	if (lastIndex < res.length) {
+		for (j = res.length - 1; j >= lastIndex; j--) {
+			string += res.charAt(j);
+		}
 	}
 
-	return array.reverse().join(' ');
+	return string;
 }
 
 module.exports = ReverseSentence;
