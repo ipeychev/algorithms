@@ -26,7 +26,6 @@ Liferay.FirstNonRepeatedCharacter.prototype = {
         }
 
         hop = Object.prototype.hasOwnProperty;
-        debugger;
 
         for (key in htCharacters) {
             if (hop.call(htCharacters, key)) {
