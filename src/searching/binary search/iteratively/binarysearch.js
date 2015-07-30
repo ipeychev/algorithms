@@ -30,6 +30,7 @@ Liferay.BinarySearch.prototype = {
 			}
 		}
 
+		// Where the item should be
 		return -(startIndex + 1);
 	}
 };

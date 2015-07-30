@@ -5,7 +5,7 @@ var TS = require(path.resolve(__dirname, '../../../src/sorting/topological-sort/
 var TSUnit = require(path.resolve(__dirname, '../../../src/sorting/topological-sort/unit.js'));
 
 describe('TS', function() {
-    it('should privide a topological sort', function() {
+    it('should provide a topological sort', function() {
         var ts = new TS();
 
         var tsOne = new TSUnit('one', []);
