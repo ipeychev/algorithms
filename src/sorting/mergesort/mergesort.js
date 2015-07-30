@@ -1,54 +1,34 @@
-'use strict';
+function MergeSort(array) {
+	if (array.length <= 1) {
+		return array;
+	}
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
+	var index = Math.floor(array.length / 2);
+
+	var firstHalf = MergeSort(array.slice(0, index));
+	var secondHalf = MergeSort(array.slice(index));
+
+	return Merge(firstHalf, secondHalf);
 }
 
-Liferay.MergeSort = function(config) {
-};
+function Merge(array1, array2) {
+	var result = [];
 
-Liferay.MergeSort.prototype = {
-	constructor: Liferay.MergeSort,
-
-	sort: function(list) {
-		return this._sort(list, 0, list.length - 1);
-	},
-
-	_merge: function(listLeft, listRight) {
-		var i, j, result = [];
-
-		for (i = 0, j = 0; i < listLeft.length || j < listRight.length;) {
-			if (i >= listLeft.length) {
-				result.push(listRight[j++]);
+	for (var i = 0, j = 0; i < array1.length || j < array2.length;) {
+		if (i < array1.length && j < array2.length) {
+			if (array1[i] <= array2[j]) {
+				result.push(array1[i++]);
+			} else {
+				result.push(array2[j++]);
 			}
-			else if (j >= listRight.length) {
-				result.push(listLeft[i++]);
-			}
-			else if (listLeft[i] <= listRight[j]) {
-				result.push(listLeft[i++]);
-			}
-			else {
-				result.push(listRight[j++]);
-			}
+		} else if (i < array1.length) {
+			result.push(array1[i++]);
+		} else if (j < array2.length) {
+			result.push(array2[j++]);
 		}
-
-		return result;
-	},
-
-	_sort: function(list, startIndex, endIndex) {
-		var listLeft, listRight, splitIndex;
-
-		if (startIndex === endIndex) {
-			return [
-				list[startIndex]
-			];
-		}
-
-		splitIndex = Math.floor(startIndex + (endIndex - startIndex) / 2);
-
-		listLeft = this._sort(list, startIndex, splitIndex);
-		listRight = this._sort(list, splitIndex + 1, endIndex);
-
-		return this._merge(listLeft, listRight);
 	}
-};
+
+	return result;
+}
+
+module.exports = MergeSort;
