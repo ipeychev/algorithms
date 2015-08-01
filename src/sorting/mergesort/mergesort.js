@@ -1,34 +1,38 @@
+var array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
 function MergeSort(array) {
-	if (array.length <= 1) {
-		return array;
-	}
+    if (array.length <= 1) {
+        return array;
+    }
 
-	var index = Math.floor(array.length / 2);
+    var index = Math.floor(array.length / 2);
 
-	var firstHalf = MergeSort(array.slice(0, index));
-	var secondHalf = MergeSort(array.slice(index));
+    var leftArray = MergeSort(array.slice(0, index));
+    var rightArray = MergeSort(array.slice(index));
 
-	return Merge(firstHalf, secondHalf);
+    var result = Merge(leftArray, rightArray);
+
+    return result;
 }
 
-function Merge(array1, array2) {
-	var result = [];
+function Merge(leftArray, rightArray) {
+    var result = [];
 
-	for (var i = 0, j = 0; i < array1.length || j < array2.length;) {
-		if (i < array1.length && j < array2.length) {
-			if (array1[i] <= array2[j]) {
-				result.push(array1[i++]);
-			} else {
-				result.push(array2[j++]);
-			}
-		} else if (i < array1.length) {
-			result.push(array1[i++]);
-		} else if (j < array2.length) {
-			result.push(array2[j++]);
-		}
-	}
+    for (var i = 0, j = 0; i < leftArray.length || j < rightArray.length;) {
+        if (i < leftArray.length && j < rightArray.length) {
+            if (leftArray[i] <= rightArray[j]) {
+                result.push(leftArray[i++]);
+            } else {
+                result.push(rightArray[j++]);
+            }
+        } else if (i < leftArray.length) {
+            result.push(leftArray[i++]);
+        } else if (j < rightArray.length) {
+            result.push(rightArray[j++]);
+        }
+    }
 
-	return result;
+    return result;
 }
 
 module.exports = MergeSort;
