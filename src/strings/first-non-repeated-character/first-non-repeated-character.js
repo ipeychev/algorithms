@@ -1,40 +1,23 @@
+function FirstNonRepeatedCharacter(string) {
+    var cache = Object.create(null);
+    var char;
 
+    for (var i = 0; i < string.length; i++) {
+        char = string.charAt(i);
+        var curVal = cache[char] || 0;
 
-if (typeof Liferay == 'undefined') {
-    var Liferay = {};
+        cache[char] = ++curVal;
+    }
+
+    for (i = 0; i < string.length; i++) {
+        char = string.charAt(i);
+
+        if (cache[char] <= 1) {
+            return char;
+        }
+    }
+
+    return '';
 }
 
-Liferay.FirstNonRepeatedCharacter = function(config) {
-};
-
-Liferay.FirstNonRepeatedCharacter.prototype = {
-    constructor: Liferay.FirstNonRepeatedCharacter,
-    
-    find: function(content) {
-        return this._find(content);
-    },
-
-    _find: function(content) {
-        var character, curValue, hop, i, htCharacters = Object.create ? Object.create(null) : {}, key;
-
-        for (i = 0; i < content.length; ++i) {
-            character = content.charAt(i);
-
-            curValue = htCharacters[character] || 0;
-
-            htCharacters[character] = ++curValue;
-        }
-
-        hop = Object.prototype.hasOwnProperty;
-
-        for (key in htCharacters) {
-            if (hop.call(htCharacters, key)) {
-                if (htCharacters[key] === 1) {
-                    return key;
-                }
-            }
-        }
-
-        return null;
-    }
-};
+module.exports = FirstNonRepeatedCharacter;
