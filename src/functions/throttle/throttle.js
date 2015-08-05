@@ -10,10 +10,10 @@ function throttle(func, wait) {
             var diff = curTime - lastCalled;
 
             if (wait < diff) {
-                func.apply(self, arguments);
+                return func.apply(self, arguments);
             }
         } else {
-            func.apply(self, arguments);
+            return func.apply(self, arguments);
         }
 
         lastCalled = curTime;
