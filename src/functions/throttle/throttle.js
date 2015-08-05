@@ -5,18 +5,21 @@ function throttle(func, wait) {
 
     return function() {
     	var curTime = Date.now();
+        var res;
 
         if (lastCalled) {
             var diff = curTime - lastCalled;
 
             if (wait < diff) {
-                return func.apply(self, arguments);
+                res = func.apply(self, arguments);
             }
         } else {
-            return func.apply(self, arguments);
+            res = func.apply(self, arguments);
         }
 
         lastCalled = curTime;
+
+        return res;
     };
 }
 
