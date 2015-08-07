@@ -1,38 +1,37 @@
-'use strict';
+// AAABBBCCCC
+// A3B3C4
 
-if (typeof Liferay == 'undefined') {
-	var Liferay = {};
+function CompressString(string) {
+    var result = '';
+
+    var curChar = string.charAt(0);
+    var curCharLength = 1;
+
+    for (var i = 1; i < string.length; i++) {
+        var char = string.charAt(i);
+
+        if (char === curChar) {
+            ++curCharLength;
+        } else {
+            result += curChar;
+
+            if (curCharLength > 1) {
+                result += curCharLength;
+            }
+
+            curChar = char;
+            curCharLength = 1;
+        }
+    }
+
+    result += curChar;
+
+    if (curCharLength > 1) {
+        result += curCharLength;
+    }
+
+    return result;
 }
 
-Liferay.CompressString = function(config) {
-};
 
-Liferay.CompressString.prototype = {
-	constructor: Liferay.CompressString,
-
-	compress: function(content) {
-		var character, count, i, result = [];
-
-		for (i = 0; i < content.length;) {
-			character = content.charAt(i);
-
-			result.push(character);
-
-			++i;
-
-			count = 1;
-
-			while (content.charAt(i) === character) {
-				++count;
-
-				++i;
-			}
-
-			if (count > 1) {
-				result.push(count);
-			}
-		}
-
-		return result.join('');
-	}
-};
+module.exports = CompressString;
