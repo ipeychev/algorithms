@@ -1,17 +1,19 @@
 function CompressSimple(string) {
-	if (typeof string !== 'string') {
-		throw new Error('The passed param must be a string');
-	}
+    if (string.length < 3) {
+        return string;
+    }
 
-	if (string.length < 3) {
-		return string;
-	}
+    var result = [];
 
-	var firstChar = string.charAt(0);
-	var lastChar = string.charAt(string.length - 1);
-	var rest = string.length - 2;
+    var endIndex = string.length - 1;
 
-	return firstChar + rest + lastChar;
+    for (var i = 1; i < endIndex; i++) {
+        result.push(string.substring(0, i) + (endIndex - i) + string.charAt(endIndex));
+    }
+
+    result.push(string);
+
+    return result;
 }
 
 module.exports = CompressSimple;
